@@ -178,5 +178,14 @@ module.exports = grammar({
     ),
 
 
+    fun_id: $ => choice(
+      $.identifier,
+      seq(
+        '(',
+        $.infix_op,
+        ')'
+      )
+    ),
+
   }
 });

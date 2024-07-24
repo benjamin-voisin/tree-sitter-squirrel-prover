@@ -122,6 +122,61 @@ module.exports = grammar({
 
     comment: $ => /(\*.+\*)/,
 
+    infix_char: $ => choice(
+      '^',
+      '+',
+      '-',
+      '*',
+      '|',
+      '&',
+      '~',
+      '<',
+      '>'
+    ),
+
+    left_infix_op: $ => seq(
+      '^',
+      repeat(
+        choice(
+          repeat1( $.infix_char),
+          seq(
+            /[0-9]+/,
+            repeat1($.infix_char)
+          ),
+        ),
+      )
+    ),
+
+    right_infix_op: $ => repeat1(
+      seq(
+        choice(
+          '+',
+          '-',
+          '*',
+          '|',
+          '&',
+          '~',
+        ),
+        choice(
+          repeat1( $.infix_char),
+          seq(
+            /[0-9]+/,
+            repeat1($.infix_char)
+          ),
+        ),
+      )
+    ),
+
+    infix_op: $ => choice(
+      '&&',
+      '||',
+      'xor',
+      '=>',
+      '<=>',
+      $.left_infix_op,
+      $.right_infix_op,
+    ),
+
 
   }
 });

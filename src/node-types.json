@@ -72,6 +72,26 @@
     }
   },
   {
+    "type": "infix_char",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "left_infix_op",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "infix_char",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "lemma",
     "named": true,
     "fields": {}
@@ -85,6 +105,21 @@
     "type": "proof",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "right_infix_op",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "infix_char",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "set_declaration",
@@ -196,6 +231,14 @@
     }
   },
   {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
     "type": "'",
     "named": false
   },
@@ -212,6 +255,14 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
     "type": "->",
     "named": false
   },
@@ -220,7 +271,23 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=>",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "=>",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
@@ -229,6 +296,10 @@
   },
   {
     "type": "Qed",
+    "named": false
+  },
+  {
+    "type": "^",
     "named": false
   },
   {
@@ -333,6 +404,22 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "xor",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]

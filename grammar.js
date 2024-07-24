@@ -15,19 +15,47 @@ module.exports = grammar({
       $.comment,
     ),
 
+    // Type definitions
 
-    type_primitive: $ => choice(
+    type_variable: $ => seq(
+      '\'',
+      $.identifier
+    ),
+
+    base_type: $ => choice(
       'bool',
       'message',
-      'index'
+      'timestamp',
+      'index',
+      $.identifier
     ),
 
-    declaration_primitive: $ => choice(
-      'abstract',
-      'name',
-      'channel',
-      'hash'
+    explicit_type: $ => choice(
+      $.type_variable,
+      $.base_type,
+      seq(
+        $.type,
+        '->',
+        $.type
+      ),
+      seq(
+        '(',
+        $.type,
+        repeat1(
+          seq(
+            '*',
+            $.type,
+          )
+        ),
+        ')'
+      ),
     ),
+
+    type: $ => choice(
+      '_',
+      $.explicit_type
+    ),
+
 
     include_declaration: $ => seq(
       'include',

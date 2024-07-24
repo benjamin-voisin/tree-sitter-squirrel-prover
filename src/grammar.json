@@ -37,7 +37,20 @@
         }
       ]
     },
-    "type_primitive": {
+    "type_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "base_type": {
       "type": "CHOICE",
       "members": [
         {
@@ -50,28 +63,91 @@
         },
         {
           "type": "STRING",
+          "value": "timestamp"
+        },
+        {
+          "type": "STRING",
           "value": "index"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },
-    "declaration_primitive": {
+    "explicit_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "type_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "base_type"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type"
+            },
+            {
+              "type": "STRING",
+              "value": "->"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type"
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "*"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "type"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "type": {
       "type": "CHOICE",
       "members": [
         {
           "type": "STRING",
-          "value": "abstract"
+          "value": "_"
         },
         {
-          "type": "STRING",
-          "value": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "channel"
-        },
-        {
-          "type": "STRING",
-          "value": "hash"
+          "type": "SYMBOL",
+          "name": "explicit_type"
         }
       ]
     },

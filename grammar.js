@@ -118,7 +118,7 @@ module.exports = grammar({
 
     number: $ => /\d+/,
 
-    identifier: $ => /[a-zA-Z]+/,
+    identifier: $ => /[a-zA-Z][a-zA-Z0-0]*/,
 
     comment: $ => /(\*.+\*)/,
 

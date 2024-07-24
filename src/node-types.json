@@ -85,11 +85,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "abstract_declaration",
+          "named": true
+        },
+        {
+          "type": "dot",
           "named": true
         },
         {
@@ -699,6 +703,10 @@
   {
     "type": "diff",
     "named": false
+  },
+  {
+    "type": "dot",
+    "named": true
   },
   {
     "type": "else",

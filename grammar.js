@@ -99,10 +99,9 @@ module.exports = grammar({
 
     quantif: $ => choice('forall', 'exists'),
 
-    binder: $ => choice(
+    binder: $ => prec.left(choice(
       $.var_or_hole,
       seq(
-        '(',
         $.var_or_hole,
         repeat(seq(',', $.var_or_hole)),
         ':',
@@ -115,9 +114,8 @@ module.exports = grammar({
           $.type,
           optional(seq('[',repeat1($.tag),']')),
         )),
-        ')',
       ),
-    ),
+    )),
 
     var_or_hole: $ => choice($.variable, '_'),
 
@@ -144,10 +142,15 @@ module.exports = grammar({
 
     // Declarations
 
-    declaration: $ => choice(
-      $.name_declaration,
-      $.abstract_declaration,
-      $.op_declaration,
+    declaration: $ => seq(
+      choice(
+        $.name_declaration,
+        $.abstract_declaration,
+        $.op_declaration,
+      ),
+      optional(
+        $.dot
+      )
     ),
 
     name_declaration: $ => seq(

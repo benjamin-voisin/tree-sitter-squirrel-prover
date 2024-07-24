@@ -42,16 +42,14 @@ module.exports = grammar({
         $.type
       )),
       seq(
-        '(',
         $.type,
-        repeat1(
-          seq(
+        prec.left(repeat1(
+          prec.left(seq(
             '*',
             $.type,
-          )
+          ))
         ),
-        ')'
-      ),
+        )),
     ),
 
     type: $ => choice(
@@ -246,7 +244,7 @@ module.exports = grammar({
 
     natural: $ => /[0-9]+/,
 
-    ident: $ => /[a-zA-Z][a-zA-Z0-0]*/,
+    ident: $ => /[a-zA-Z][a-zA-Z0-0']*/,
 
     comment: $ => /(\*.+\*)/,
 
@@ -315,6 +313,6 @@ module.exports = grammar({
       )
     ),
 
-
+    dot: $ => /\./,
   }
 });

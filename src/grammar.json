@@ -122,32 +122,32 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "("
-            },
-            {
               "type": "SYMBOL",
               "name": "type"
             },
             {
-              "type": "REPEAT1",
+              "type": "PREC_LEFT",
+              "value": 0,
               "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "*"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type"
+                "type": "REPEAT1",
+                "content": {
+                  "type": "PREC_LEFT",
+                  "value": 0,
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "*"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "type"
+                      }
+                    ]
                   }
-                ]
+                }
               }
-            },
-            {
-              "type": "STRING",
-              "value": ")"
             }
           ]
         }
@@ -1082,7 +1082,7 @@
     },
     "ident": {
       "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z0-0]*"
+      "value": "[a-zA-Z][a-zA-Z0-0']*"
     },
     "comment": {
       "type": "PATTERN",
@@ -1300,6 +1300,10 @@
           ]
         }
       ]
+    },
+    "dot": {
+      "type": "PATTERN",
+      "value": "\\."
     }
   },
   "extras": [

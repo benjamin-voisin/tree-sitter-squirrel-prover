@@ -2,8 +2,263 @@
   "name": "squirrel",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_block"
+      }
+    },
+    "_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "process"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "system"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "lemma"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "proof"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        }
+      ]
+    },
+    "type_primitive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bool"
+        },
+        {
+          "type": "STRING",
+          "value": "message"
+        },
+        {
+          "type": "STRING",
+          "value": "index"
+        }
+      ]
+    },
+    "declaration_primitive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "abstract"
+        },
+        {
+          "type": "STRING",
+          "value": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "channel"
+        },
+        {
+          "type": "STRING",
+          "value": "hash"
+        }
+      ]
+    },
+    "include_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "include"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "declaration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "set_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "include_declaration"
+        }
+      ]
+    },
+    "set_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set_options"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set_value"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "set_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "false"
+        },
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "set_options": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "timeout"
+        },
+        {
+          "type": "STRING",
+          "value": "printTRSEquations"
+        },
+        {
+          "type": "STRING",
+          "value": "debugConstr"
+        },
+        {
+          "type": "STRING",
+          "value": "debugCompletion"
+        },
+        {
+          "type": "STRING",
+          "value": "debugTactics"
+        },
+        {
+          "type": "STRING",
+          "value": "processStrictAliasMode"
+        },
+        {
+          "type": "STRING",
+          "value": "showStrengthenedHyp"
+        },
+        {
+          "type": "STRING",
+          "value": "autoFADup"
+        },
+        {
+          "type": "STRING",
+          "value": "newInduction"
+        },
+        {
+          "type": "STRING",
+          "value": "postQuantumSound"
+        },
+        {
+          "type": "STRING",
+          "value": "checkInclude"
+        }
+      ]
+    },
+    "process": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "process"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "lemma": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "lemma"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "proof": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Proof"
+        },
+        {
+          "type": "STRING",
+          "value": "Qed"
+        }
+      ]
+    },
+    "system": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "system"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]+"
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "(\\*.+\\*)"
     }
   },
   "extras": [

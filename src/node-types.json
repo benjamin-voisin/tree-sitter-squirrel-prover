@@ -1,11 +1,258 @@
 [
   {
-    "type": "source_file",
+    "type": "declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "include_declaration",
+          "named": true
+        },
+        {
+          "type": "set_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lemma",
     "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "process",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "proof",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "set_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "set_options",
+          "named": true
+        },
+        {
+          "type": "set_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_options",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "set_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "lemma",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "proof",
+          "named": true
+        },
+        {
+          "type": "system",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "system",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "Proof",
+    "named": false
+  },
+  {
+    "type": "Qed",
+    "named": false
+  },
+  {
+    "type": "abstract",
+    "named": false
+  },
+  {
+    "type": "autoFADup",
+    "named": false
+  },
+  {
+    "type": "bool",
+    "named": false
+  },
+  {
+    "type": "channel",
+    "named": false
+  },
+  {
+    "type": "checkInclude",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "debugCompletion",
+    "named": false
+  },
+  {
+    "type": "debugConstr",
+    "named": false
+  },
+  {
+    "type": "debugTactics",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "hash",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "index",
+    "named": false
+  },
+  {
+    "type": "lemma",
+    "named": false
+  },
+  {
+    "type": "message",
+    "named": false
+  },
+  {
+    "type": "name",
+    "named": false
+  },
+  {
+    "type": "newInduction",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "postQuantumSound",
+    "named": false
+  },
+  {
+    "type": "printTRSEquations",
+    "named": false
+  },
+  {
+    "type": "process",
+    "named": false
+  },
+  {
+    "type": "processStrictAliasMode",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
+    "type": "showStrengthenedHyp",
+    "named": false
+  },
+  {
+    "type": "system",
+    "named": false
+  },
+  {
+    "type": "timeout",
+    "named": false
+  },
+  {
+    "type": "true",
     "named": false
   }
 ]

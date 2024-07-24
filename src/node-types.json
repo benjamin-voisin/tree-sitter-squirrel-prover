@@ -1,5 +1,28 @@
 [
   {
+    "type": "abstract_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fun_id",
+          "named": true
+        },
+        {
+          "type": "tvar_params",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "base_type",
     "named": true,
     "fields": {},
@@ -8,11 +31,54 @@
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "ident",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "binder",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "var_or_hole",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "binders",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binder",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "declaration",
@@ -23,11 +89,30 @@
       "required": true,
       "types": [
         {
-          "type": "include_declaration",
+          "type": "abstract_declaration",
           "named": true
         },
         {
-          "type": "set_declaration",
+          "type": "name_declaration",
+          "named": true
+        },
+        {
+          "type": "op_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diff_term",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "term",
           "named": true
         }
       ]
@@ -57,7 +142,7 @@
     }
   },
   {
-    "type": "include_declaration",
+    "type": "fun_id",
     "named": true,
     "fields": {},
     "children": {
@@ -65,7 +150,11 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix_op",
           "named": true
         }
       ]
@@ -116,12 +205,110 @@
     "fields": {}
   },
   {
+    "type": "macro_application",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "natural",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "op_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binders",
+          "named": true
+        },
+        {
+          "type": "operator_id",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "tvar_params",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator_id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "process",
     "named": true,
     "fields": {}
   },
   {
     "type": "proof",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "quantif",
     "named": true,
     "fields": {}
   },
@@ -135,25 +322,6 @@
       "types": [
         {
           "type": "infix_char",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "set_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "set_options",
-          "named": true
-        },
-        {
-          "type": "set_value",
           "named": true
         }
       ]
@@ -188,6 +356,10 @@
       "required": false,
       "types": [
         {
+          "type": "command",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -215,9 +387,114 @@
     }
   },
   {
+    "type": "sterm",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "diff_term",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "system",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "term",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix_op",
+          "named": true
+        },
+        {
+          "type": "macro_application",
+          "named": true
+        },
+        {
+          "type": "natural",
+          "named": true
+        },
+        {
+          "type": "sterm",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "term_with_binders",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "term_with_binders",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binders",
+          "named": true
+        },
+        {
+          "type": "quantif",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tvar_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_variable",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "type",
@@ -243,11 +520,45 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "ident",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "var_or_hole",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#",
+    "named": false
   },
   {
     "type": "&",
@@ -278,6 +589,10 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": "-",
     "named": false
   },
@@ -287,6 +602,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {
@@ -310,6 +629,10 @@
     "named": false
   },
   {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "Proof",
     "named": false
   },
@@ -318,11 +641,27 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "^",
     "named": false
   },
   {
     "type": "_",
+    "named": false
+  },
+  {
+    "type": "abstract",
+    "named": false
+  },
+  {
+    "type": "adv",
     "named": false
   },
   {
@@ -342,6 +681,10 @@
     "named": true
   },
   {
+    "type": "const",
+    "named": false
+  },
+  {
     "type": "debugCompletion",
     "named": false
   },
@@ -354,15 +697,47 @@
     "named": false
   },
   {
+    "type": "diff",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "exists",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
   {
-    "type": "identifier",
+    "type": "find",
+    "named": false
+  },
+  {
+    "type": "forall",
+    "named": false
+  },
+  {
+    "type": "fun",
+    "named": false
+  },
+  {
+    "type": "glob",
+    "named": false
+  },
+  {
+    "type": "ident",
     "named": true
   },
   {
-    "type": "include",
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "in",
     "named": false
   },
   {
@@ -378,12 +753,20 @@
     "named": false
   },
   {
+    "type": "name",
+    "named": false
+  },
+  {
     "type": "newInduction",
     "named": false
   },
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "op",
+    "named": false
   },
   {
     "type": "postQuantumSound",
@@ -410,7 +793,15 @@
     "named": false
   },
   {
+    "type": "such that",
+    "named": false
+  },
+  {
     "type": "system",
+    "named": false
+  },
+  {
+    "type": "then",
     "named": false
   },
   {

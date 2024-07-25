@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: 'squirrel',
+  name: 'squirrel_prover',
 
   rules: {
 

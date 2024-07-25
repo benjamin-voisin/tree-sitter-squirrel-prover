@@ -1,5 +1,5 @@
 {
-  "name": "squirrel",
+  "name": "squirrel_prover",
   "rules": {
     "source_file": {
       "type": "REPEAT",

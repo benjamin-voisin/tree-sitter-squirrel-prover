@@ -37,8 +37,12 @@
   ],
   "tree-sitter": [
     {
-      "scope": "source.squirrel",
-      "injection-regex": "^squirrel$"
+      "scope": "source.squirrel_prover",
+      "file-types": [
+        "sp"
+      ],
+      "injection-regex": "^squirrel_prover$",
+      "highlights": "queries/highlights.scm"
     }
   ]
 }

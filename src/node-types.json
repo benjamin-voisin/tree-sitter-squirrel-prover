@@ -23,6 +23,25 @@
     }
   },
   {
+    "type": "aenc_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crypto_ty_arg",
+          "named": true
+        },
+        {
+          "type": "fun_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "base_type",
     "named": true,
     "fields": {},
@@ -81,6 +100,25 @@
     "fields": {}
   },
   {
+    "type": "crypto_ty_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "declaration",
     "named": true,
     "fields": {},
@@ -93,7 +131,19 @@
           "named": true
         },
         {
+          "type": "aenc_declaration",
+          "named": true
+        },
+        {
           "type": "dot",
+          "named": true
+        },
+        {
+          "type": "group_declaration",
+          "named": true
+        },
+        {
+          "type": "hash_declaration",
           "named": true
         },
         {
@@ -102,6 +152,14 @@
         },
         {
           "type": "op_declaration",
+          "named": true
+        },
+        {
+          "type": "senc_declaration",
+          "named": true
+        },
+        {
+          "type": "signature_declaration",
           "named": true
         }
       ]
@@ -159,6 +217,44 @@
         },
         {
           "type": "infix_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crypto_ty_arg",
+          "named": true
+        },
+        {
+          "type": "fun_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hash_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crypto_ty_arg",
+          "named": true
+        },
+        {
+          "type": "fun_id",
           "named": true
         }
       ]
@@ -332,6 +428,25 @@
     }
   },
   {
+    "type": "senc_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crypto_ty_arg",
+          "named": true
+        },
+        {
+          "type": "fun_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set_options",
     "named": true,
     "fields": {}
@@ -346,6 +461,25 @@
       "types": [
         {
           "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "signature_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crypto_ty_arg",
+          "named": true
+        },
+        {
+          "type": "fun_id",
           "named": true
         }
       ]
@@ -669,11 +803,19 @@
     "named": false
   },
   {
+    "type": "aenc",
+    "named": false
+  },
+  {
     "type": "autoFADup",
     "named": false
   },
   {
     "type": "bool",
+    "named": false
+  },
+  {
+    "type": "cdh",
     "named": false
   },
   {
@@ -686,6 +828,10 @@
   },
   {
     "type": "const",
+    "named": false
+  },
+  {
+    "type": "ddh",
     "named": false
   },
   {
@@ -733,7 +879,15 @@
     "named": false
   },
   {
+    "type": "gdh",
+    "named": false
+  },
+  {
     "type": "glob",
+    "named": false
+  },
+  {
+    "type": "hash",
     "named": false
   },
   {
@@ -793,11 +947,19 @@
     "named": false
   },
   {
+    "type": "senc",
+    "named": false
+  },
+  {
     "type": "set",
     "named": false
   },
   {
     "type": "showStrengthenedHyp",
+    "named": false
+  },
+  {
+    "type": "signature",
     "named": false
   },
   {
@@ -822,6 +984,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "where",
     "named": false
   },
   {

@@ -757,6 +757,26 @@
             {
               "type": "SYMBOL",
               "name": "op_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "hash_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "signature_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "aenc_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "senc_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "group_declaration"
             }
           ]
         },
@@ -935,6 +955,270 @@
         {
           "type": "SYMBOL",
           "name": "term"
+        }
+      ]
+    },
+    "crypto_ty_arg": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ident"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        }
+      ]
+    },
+    "hash_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "hash"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "where"
+                },
+                {
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "crypto_ty_arg"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "signature_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "signature"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "where"
+                },
+                {
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "crypto_ty_arg"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "aenc_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "aenc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "where"
+                },
+                {
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "crypto_ty_arg"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "senc_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "senc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "where"
+                },
+                {
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "crypto_ty_arg"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "group_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "ddh"
+            },
+            {
+              "type": "STRING",
+              "value": "cdh"
+            },
+            {
+              "type": "STRING",
+              "value": "gdh"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fun_id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "fun_id"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "where"
+                },
+                {
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "crypto_ty_arg"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

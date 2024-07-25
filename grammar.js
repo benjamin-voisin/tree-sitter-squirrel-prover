@@ -147,6 +147,11 @@ module.exports = grammar({
         $.name_declaration,
         $.abstract_declaration,
         $.op_declaration,
+        $.hash_declaration,
+        $.signature_declaration,
+        $.aenc_declaration,
+        $.senc_declaration,
+        $.group_declaration,
       ),
       optional(
         $.dot
@@ -189,6 +194,74 @@ module.exports = grammar({
       $.term
     ),
 
+    crypto_ty_arg: $ => seq(
+      $.ident,
+      ':',
+      $.type,
+    ),
+
+    hash_declaration: $ => seq(
+      'hash',
+      $.fun_id,
+      optional(
+        seq(
+          'where',
+          repeat1($.crypto_ty_arg)
+        )
+      )
+    ),
+
+    signature_declaration: $ => seq(
+      'signature',
+      $.fun_id,
+      $.fun_id,
+      $.fun_id,
+      optional(
+        seq(
+          'where',
+          repeat1($.crypto_ty_arg)
+        )
+      )
+    ),
+
+    aenc_declaration: $ => seq(
+      'aenc',
+      $.fun_id,
+      $.fun_id,
+      $.fun_id,
+      optional(
+        seq(
+          'where',
+          repeat1($.crypto_ty_arg)
+        )
+      )
+    ),
+
+    senc_declaration: $ => seq(
+      'senc',
+      $.fun_id,
+      $.fun_id,
+      $.fun_id,
+      optional(
+        seq(
+          'where',
+          repeat1($.crypto_ty_arg)
+        )
+      )
+    ),
+
+    group_declaration: $ => seq(
+      choice('ddh','cdh','gdh'),
+      $.fun_id,
+      $.fun_id,
+      optional(seq(',', $.fun_id)),
+      optional(
+        seq(
+          'where',
+          repeat1($.crypto_ty_arg)
+        )
+      )
+    ),
 
     // Commands
 

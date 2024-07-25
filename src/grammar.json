@@ -1099,7 +1099,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "(\\*.+\\*)"
+      "value": "\\(\\*.*\\*\\)"
     },
     "infix_char": {
       "type": "CHOICE",

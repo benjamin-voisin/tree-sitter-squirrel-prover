@@ -249,7 +249,7 @@ module.exports = grammar({
 
     ident: $ => /[a-zA-Z][a-zA-Z0-0']*/,
 
-    comment: $ => /(\*.+\*)/,
+    comment: $ => /\(\*.*\*\)/,
 
     infix_char: $ => choice(
       '^',
